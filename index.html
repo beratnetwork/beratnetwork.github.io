@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Seçme Sayfası</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Genel Sayfa Stili */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #2C3E50, #34495E);
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ECF0F1;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Container Stili */
+        .container {
+            background-color: #1C2833;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+            animation: fadeInContainer 1s ease-in forwards;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: transform 0.5s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            font-size: 50px;
+            color: #A9DFBF;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+            transition: color 0.3s ease;
+        }
+
+        h1:hover {
+            color: #2ECC71;
+        }
+
+        p {
+            font-size: 20px;
+            color: #BDC3C7;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* Butonlar */
+        .choice-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .link-button {
+            padding: 20px 40px;
+            font-size: 20px;
+            background-color: #27AE60;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            display: block;
+            text-align: center;
+            position: relative;
+            text-decoration: none; /* Altı çizili olmaması için */
+        }
+
+        .link-button:hover {
+            background-color: #2ECC71;
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .link-button:active {
+            transform: scale(0.98);
+        }
+
+        .link-button i {
+            margin-right: 10px;
+        }
+
+        /* Linklerin altını kaldırmak */
+        a {
+            text-decoration: none; /* Linklerin altı çizili olmasın */
+        }
+
+        .message {
+            margin-top: 40px;
+            font-size: 18px;
+            color: #A9DFBF;
+            display: none;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #27AE60;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        .link-description {
+            font-size: 18px;
+            color: #BDC3C7;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .link-description.show {
+            opacity: 1;
+        }
+
+        /* Animasyonlar */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInContainer {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .choice-buttons {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .link-button {
+                width: 100%;
+                padding: 15px 0;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Hangi Siteye Gitmek İstiyorsun?</h1>
+        <p>Hedeflerinize ulaşmak için bir seçenek belirleyin.</p>
+
+        <div class="choice-buttons">
+            <!-- Linklere tıklandığında yeni sekmede açılması için target="_blank" eklendi -->
+            <a href="https://beratnetwork.github.io/index2" target="_blank">
+                <button class="link-button">
+                    <i class="fas fa-link"></i>NETWORK
+                </button>
+            </a>
+            <a href="https://beratnetwork.github.io/beratbicer" target="_blank">
+                <button class="link-button">
+                    <i class="fas fa-link"></i>PORFTOLYO
+                </button>
+            </a>
+        </div>
+
+        <div class="link-description" id="description"></div>
+
+        <div class="message" id="message">
+            <p><strong>Yönlendiriliyorsunuz...</strong></p>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+</body>
+</html>
