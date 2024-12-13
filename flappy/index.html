@@ -1,0 +1,123 @@
+<!-- Contact: @dombili -->
+<!-- Source: github.com/dombili/FlappyTayyip -->
+
+<!DOCTYPE html>
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlappyTayyip</title>
+    <style>
+        /* Çerez bildirimi için stil */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            z-index: 1000;
+        }
+
+        #cookie-banner button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #cookie-banner button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cookie-banner">
+        Bu site, mizah amaçlı yapılmıştır hiçbir sorumluluk kabul edilmemektedir oynayan kişi bunu kabul etmiş olur.
+        <button onclick="acceptCookies()">Kabul Et</button>
+    </div>
+
+    <script>
+        // Çerez kabul etme fonksiyonu
+        function acceptCookies() {
+            // Çerezi tarayıcıda sakla
+            document.cookie = "cookies_accepted=true; max-age=" + 60 * 60 * 24 * 365 + "; path=/";
+            // Çerez bildirimi gizle
+            document.getElementById("cookie-banner").style.display = "";
+        }
+
+        // Çerez kontrolü: Eğer çerez kabul edilmemişse bildirim göster
+        if (document.cookie.indexOf("cookies_accepted=true") === -1) {
+            document.getElementById("cookie-banner").style.display = "block";
+        } else {
+            document.getElementById("cookie-banner").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="description" content="A variation of Flappy Bird in HTML5 with an homage to our glorious leader">
+    <meta charset="UTF-8">
+    <title>Flappy Tayyip - an homage to our glorious leader</title>
+    
+    <style>    
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #000;
+    }
+    
+    #screen canvas {
+        margin: 0 auto;
+    }
+    
+    #github {
+        position:absolute;
+        bottom: 0px;
+        left:60px;
+    }
+    
+    #twitter {
+        position: absolute;
+        bottom: 3px;
+        left: 15px;
+    }
+    
+    #loading {
+        position: absolute;
+        font-family: "Verdana";
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-size: 24px;
+        top: 50%;
+    }
+    </style>
+
+  </head>
+  <body>
+    <div id="loading">Yükleniyor...</div>
+    <div id="screen"></div>
+    <div id="twitter"><a href=""><img src="assets/tayyip.png" alt=""></img></a></div>
+    <div id="github"></div>
+    <script src="index.min.js?v=02131824"></script>
+  </html>

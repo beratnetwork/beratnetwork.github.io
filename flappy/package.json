@@ -1,0 +1,33 @@
+{
+  "name": "FlappyTayyip",
+  "version": "1",
+  "description": "A variation of Flappy Bird in HTML5, with an homage to our glorious leader",
+  "devDependencies": {
+    "gulp": "~3.5.2",
+    "coffee-script": "~1.7.1",
+    "gulp-coffee": "~1.4.1",
+    "gulp-util": "~2.2.14",
+    "gulp-connect": "~0.3.1",
+    "gulp-uglify": "~0.2.1",
+    "gulp-concat": "~2.1.7"
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/gulp --require coffee-script/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dombili/FlappyTayyip"
+  },
+  "keywords": [
+    "game",
+    "flappy",
+    "bird",
+    "tayyip"
+  ],
+  "author": "dombili",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dombili/FlappyTayyip/issues"
+  },
+  "homepage": "https://github.com/dombili/FlappyTayyip"
+}

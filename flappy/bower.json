@@ -1,0 +1,28 @@
+{
+  "name": "FlappyTayyip",
+  "version": "1",
+  "authors": [
+    "dombili"
+  ],
+  "description": "A variation of Flappy Bird in HTML5, with an homage to our glorious leader",
+  "main": "index.html",
+  "keywords": [
+    "game",
+    "flappy",
+    "bird",
+    "tayyip"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/dombili/FlappyTayyip",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "phaser": "~1.1.4"
+  }
+}
