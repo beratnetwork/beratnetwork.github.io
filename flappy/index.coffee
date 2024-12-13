@@ -9,7 +9,7 @@ SCALE = 1
 HEIGHT = 1080
 WIDTH = 1920
 GAME_HEIGHT = 1080
-GROUND_HEIGHT = 64
+GROUND_HEIGHT = 1920
 GROUND_Y = HEIGHT - GROUND_HEIGHT
 
 parent = document.querySelector("#screen")
