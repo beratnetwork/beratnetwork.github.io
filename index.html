@@ -54,8 +54,10 @@
   const messaging = getMessaging(app);
 
   navigator.serviceWorker.register("sw.js").then(registration => {
-  getToken(messaging, { vapidKey: 'BBetuOI2H3yuCUMWBkEdXB02CemJJOki9ZBBKuZ5phIW2_eWmhq1VjO0uAKEiaG_iEpVEZ3hTCFMOcfUITeCxMM }).then((currentToken) => {
-      serviceWorkerRegistration: registration,
+  getToken(messaging, {
+    serviceWorkerRegistration: registration,
+    vapidKey: 'BBetuOI2H3yuCUMWBkEdXB02CemJJOki9ZBBKuZ5phIW2_eWmhq1VjO0uAKEiaG_iEpVEZ3hTCFMOcfUITeCxMM }).then((currentToken) => {
+      
     
     if (currentToken) {
         console.log("Token is: "+currentToken);
