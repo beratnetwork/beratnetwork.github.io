@@ -25,6 +25,37 @@
 </head>
 
 <body>  
+
+
+  
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBjIEgX730jNjtXI8tLhV0s8aitt3M3weE",
+    authDomain: "beratnet-80585.firebaseapp.com",
+    projectId: "beratnet-80585",
+    storageBucket: "beratnet-80585.firebasestorage.app",
+    messagingSenderId: "892452071698",
+    appId: "1:892452071698:web:3f6dce9a603d379ff1abcb",
+    measurementId: "G-PQZT2DRVRM"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+
+
+  
+  
   <!-- START THE NAVBAR SECTION -->
 
   <audio src="https://beratnetwork.github.io/s/s.mp3" controls="" autoplay="" hidden="">
