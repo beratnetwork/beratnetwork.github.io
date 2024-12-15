@@ -48,31 +48,38 @@
     measurementId: "G-PQZT2DRVRM"
   };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const messaging = getMessaging(app);
+ // Firebase Başlatma
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const messaging = getMessaging(app);
 
-  navigator.serviceWorker.register("sw.js").then(registration => {
-  getToken(messaging, {
-    serviceWorkerRegistration: registration,
-    vapidKey: 'BBetuOI2H3yuCUMWBkEdXB02CemJJOki9ZBBKuZ5phIW2_eWmhq1VjO0uAKEiaG_iEpVEZ3hTCFMOcfUITeCxMM }).then((currentToken) => {
-      
-    
-    if (currentToken) {
-        console.log("Token is: "+currentToken);
-    // Send the token to your server and update the UI if necessary
-    // ...
+// Bildirim İzinlerini Kontrol Et ve Token Al
+Notification.requestPermission().then(permission => {
+  if (permission === 'granted') {
+    // Service Worker'ı Kaydet
+    navigator.serviceWorker.register("sw.js").then(registration => {
+      // Token Al
+      getToken(messaging, {
+        serviceWorkerRegistration: registration,
+        vapidKey: 'BBetuOI2H3yuCUMWBkEdXB02CemJJOki9ZBBKuZ5phIW2_eWmhq1VjO0uAKEiaG_iEpVEZ3hTCFMOcfUITeCxMM'
+      }).then((currentToken) => {
+        if (currentToken) {
+          console.log("Token is: " + currentToken);
+          // Token'i sunucuya gönder
+        } else {
+          console.log('No registration token available. Request permission to generate one.');
+        }
+      }).catch((err) => {
+        console.error('An error occurred while retrieving token: ', err);
+      });
+    }).catch(err => {
+      console.error('Service Worker registration failed: ', err);
+    });
   } else {
-    // Show permission request UI
-    console.log('No registration token available. Request permission to generate one.');
-    // ...
+    console.error('Notification permission denied.');
   }
-}).catch((err) => {
-  console.log('An error occurred while retrieving token. ', err);
-  // ...
 });
-  });
+
   
 
 
