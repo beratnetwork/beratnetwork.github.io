@@ -9,9 +9,9 @@ self.addEventListener("push", (event) => {
             event.waitUntil(
                 self.registration.showNotification(notif.title, {
                     body: notif.body,
-                    icon: notif.image || "default-icon.png", // Eğer image yoksa varsayılan bir ikon kullanılır.
+                    icon: notif.image || "default-icon.png", // Eğer image yoksa varsayılan bir ikon
                     data: {
-                        url: notif.click_action || "/" // Eğer click_action yoksa ana sayfaya yönlendirir.
+                        url: notif.click_action || "/" // Eğer click_action yoksa ana sayfaya yönlendirme
                     }
                 })
             );
@@ -28,12 +28,11 @@ self.addEventListener("notificationclick", (event) => {
     const targetUrl = event.notification.data?.url || "/";
     event.notification.close(); // Bildirimi kapat
 
-    // Açılacak pencereyi yönet
     event.waitUntil(
         clients.matchAll({ type: "window", includeUncontrolled: true }).then((clientList) => {
             for (const client of clientList) {
                 if (client.url === targetUrl && "focus" in client) {
-                    return client.focus(); // Eğer pencere zaten açık ise ona odaklan
+                    return client.focus(); // Eğer pencere açık ise odaklan
                 }
             }
             if (clients.openWindow) {
